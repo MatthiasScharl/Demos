@@ -650,8 +650,11 @@
       $('#btnCsv').on('click',   function () { table.button('.buttons-csv').trigger();   });
       $('#btnExcel').on('click', function () { table.button('.buttons-excel').trigger(); });
 
-      $('#mfaTable tbody').on('click', 'tr:has(.methods-summary)', function () {
-        $(this).find('.methods-summary, .methods-detail, .sspr-chips').toggle();
+      $('#mfaTable tbody').on('click', 'tr', function () {
+        var $row = $(this);
+        if ($row.find('.methods-summary').length) {
+          $row.find('.methods-summary, .methods-detail, .sspr-chips').toggle();
+        }
       });
     });
   </script>
