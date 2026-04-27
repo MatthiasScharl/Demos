@@ -16,7 +16,7 @@ This repository hosts static HTML demo reports that can be rendered in any brows
 
 | Solution | Demo |
 |---|---|
-| [Entra — Security Info Report](https://htmlpreview.github.io/?https://github.com/MatthiasScharl/Demos/blob/main/Entra/SecurityInfo-Report/SecurityInfoReport-demo.html) | Authentication method & SSPR coverage report with 12 sample users |
+| [Entra — Security Info Report](https://matthiasscharl.github.io/Demos/Entra/SecurityInfo-Report/SecurityInfoReport-demo.html) | Authentication method & SSPR coverage report with 12 sample users |
 
 ## Disclaimer
 
