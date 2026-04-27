@@ -17,6 +17,7 @@ This repository hosts static HTML demo reports that can be rendered in any brows
 | Solution | Demo |
 |---|---|
 | [Entra — Security Info Report](https://matthiasscharl.github.io/Demos/Entra/SecurityInfo-Report/SecurityInfoReport-demo.html) | Authentication method & SSPR coverage report with 12 sample users |
+| [MDI — Deployment Planner](https://matthiasscharl.github.io/Demos/MDI/MDIDeploymentPlan-demo.html) | Microsoft Defender for Identity deployment plan with sample environment (Zava) |
 
 ## Disclaimer
 
