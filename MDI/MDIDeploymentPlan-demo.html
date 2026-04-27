@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MDI Deployment Plan — Zava</title>
+  <title>MDI Deployment Plan ΓÇö Zava</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
   <style>
-    /* ── Fluent UI colour tokens ─────────────────────────────────── */
+    /* ΓöÇΓöÇ Fluent UI colour tokens ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
     :root {
       --f-bg:         #faf9f8;
       --f-surface:    #ffffff;
@@ -46,7 +46,7 @@
         --f-neutral-bg: #3b3a39;
       }
     }
-    /* ── Base ────────────────────────────────────────────────────── */
+    /* ΓöÇΓöÇ Base ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
     *, *::before, *::after { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -55,11 +55,8 @@
       color: var(--f-text);
       margin: 0; padding: 0;
     }
-    /* ── Page header ──────────────────────────────────────────────  */
-        .page-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* ΓöÇΓöÇ Page header ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
+    .page-header {
       position: sticky;
       top: 0;
       z-index: 100;
@@ -70,9 +67,9 @@
     .page-breadcrumb { font-size: 12px; color: var(--f-text2); margin-bottom: 6px; }
     .page-title { font-size: 20px; font-weight: 600; color: var(--f-text); margin: 0 0 6px; }
     .page-meta { font-size: 12px; color: var(--f-text2); display: flex; flex-wrap: wrap; gap: 4px 12px; }
-    /* ── Content area ─────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Content area ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .content-area { padding: 20px 24px; max-width: 1200px; margin: 0 auto; }
-    /* ── Stat cards ───────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Stat cards ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .stat-card { background: var(--f-surface); border: 1px solid var(--f-border); border-radius: 4px; padding: 16px; height: 100%; }
     .stat-label { font-size: 12px; color: var(--f-text2); margin-bottom: 4px; }
     .stat-value { font-size: 28px; font-weight: 600; line-height: 1.2; color: var(--f-text); }
@@ -80,7 +77,7 @@
     .v-red   { color: var(--f-red)   !important; }
     .v-blue  { color: var(--f-blue)  !important; }
     .v-amber { color: var(--f-amber) !important; }
-    /* ── Section cards ────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Section cards ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .section-card {
       background: var(--f-surface);
       border: 1px solid var(--f-border);
@@ -97,7 +94,7 @@
       border-bottom: 1px solid var(--f-border); padding-bottom: 8px; margin-bottom: 12px;
     }
     .section-card h6 { font-size: 13px; font-weight: 600; margin-top: 14px; margin-bottom: 8px; }
-    /* ── Status pills ─────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Status pills ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .fl-pill {
       display: inline-flex; align-items: center; padding: 2px 10px;
       border-radius: 12px; font-size: 12px; white-space: nowrap;
@@ -110,7 +107,7 @@
     @media (prefers-color-scheme: dark) {
       .fl-pill-primary { background: #0a2a5a; color: #6ab7f5; }
     }
-    /* ── Fluent alerts ────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Fluent alerts ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .fl-alert {
       padding: 10px 14px; border-radius: 4px; border-left: 3px solid;
       margin-bottom: 8px; font-size: 13px; line-height: 1.5;
@@ -119,7 +116,7 @@
     .fl-alert-warning { background: var(--f-amber-bg); border-color: var(--f-amber); color: var(--f-text); }
     .fl-alert-info    { background: #deecf9;           border-color: var(--f-blue);  color: var(--f-text); }
     .fl-alert-success { background: var(--f-green-bg); border-color: var(--f-green); color: var(--f-text); }
-    /* ── Table ────────────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Table ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .fl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
     .fl-table thead th {
       background: var(--f-bg); color: var(--f-text); font-weight: 600;
@@ -132,7 +129,7 @@
     .fl-table tbody tr:hover td { background: var(--f-bg); }
     .fl-table tbody tr:last-child td { border-bottom: none; }
     .fl-table thead th.text-center, .fl-table tbody td.text-center { text-align: center; }
-    /* ── Checklist ────────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Checklist ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .fl-checklist { list-style: none; padding: 0; margin: 0; }
     .fl-checklist-item {
       display: flex; align-items: flex-start; gap: 10px;
@@ -142,7 +139,7 @@
     .fl-checklist-item input[type=checkbox] { margin-top: 2px; flex-shrink: 0; cursor: pointer; }
     .fl-checklist-item .item-body { flex: 1; }
     .fl-checklist-item .item-body.done { text-decoration: line-through; color: var(--f-text2); }
-    /* ── Code ─────────────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Code ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     code {
       background: var(--f-neutral-bg); border: 1px solid var(--f-border);
       border-radius: 3px; padding: 1px 5px; font-size: 12px; color: var(--f-text);
@@ -152,17 +149,14 @@
       border-radius: 4px; padding: 12px 14px; font-size: 12px; overflow-x: auto; margin-top: 10px;
     }
     pre code { background: none; border: none; padding: 0; }
-    /* ── Footer ───────────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Footer ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     .page-footer { font-size: 12px; color: var(--f-text2); padding: 8px 0 20px; }
-    /* ── Print ────────────────────────────────────────────────────  */
+    /* ΓöÇΓöÇ Print ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  */
     @media print {
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
       @page { size: A4; margin: 15mm; }
       body { background: white !important; color: #000 !important; font-size: 9pt !important; }
-          .page-header {
-      position: sticky;
-      top: 0;
-      z-index: 100; border-bottom: 2px solid #0078d4 !important; padding: 10px 0 8px !important; }
+      .page-header { border-bottom: 2px solid #0078d4 !important; padding: 10px 0 8px !important; }
       .page-title { font-size: 14pt !important; }
       .page-meta  { font-size: 8pt !important; }
       .no-print { display: none !important; }
@@ -179,7 +173,7 @@
   </style>
 </head>
 <body>
-  <div class='demo-banner'>&#x26A0;&#xFE0F; <strong>Demo file — sample data only.</strong> No real customer or tenant information is included.</div>
+  <div class="demo-banner">&#x26A0;&#xFE0F; <strong>Demo file ΓÇö sample data only.</strong> No real customer or tenant information is included.</div>
 
   <!-- Page header -->
   <div class="page-header">
@@ -197,13 +191,13 @@
     <!-- Summary Cards -->
     <div class="row g-3 mb-4">
       <div class="col-6 col-sm-4 col-lg-3">
-        <div class="stat-card"><div class="stat-label">Total Sensors</div><div class="stat-value">3</div></div>
+        <div class="stat-card"><div class="stat-label">Total Sensors</div><div class="stat-value">10</div></div>
       </div>
       <div class="col-6 col-sm-4 col-lg-3">
-        <div class="stat-card"><div class="stat-label">Sensor v3.x</div><div class="stat-value v-blue">1</div></div>
+        <div class="stat-card"><div class="stat-label">Sensor v3.x</div><div class="stat-value v-blue">4</div></div>
       </div>
       <div class="col-6 col-sm-4 col-lg-3">
-        <div class="stat-card"><div class="stat-label">Sensor v2.x</div><div class="stat-value" style="color:var(--f-text2)">2</div></div>
+        <div class="stat-card"><div class="stat-label">Sensor v2.x</div><div class="stat-value" style="color:var(--f-text2)">6</div></div>
       </div>
       <div class="col-6 col-sm-4 col-lg-3">
         <div class="stat-card"><div class="stat-label">AD Forest(s)</div><div class="stat-value">1</div></div>
@@ -228,7 +222,7 @@
     <!-- Warnings & Blockers -->
     <div class="section-card">
       <h4>Warnings &amp; Blockers</h4>
-      <div class='fl-alert fl-alert-success'>✅ No blockers or warnings identified.</div>
+      <div class='fl-alert fl-alert-success'>Γ£à No blockers or warnings identified.</div>
     </div>
 
     <!-- Server Deployment Overview -->
@@ -249,10 +243,30 @@
           <td>AD DS</td>
           <td class='text-center'>No</td>
           <td class='text-center'>Unknown</td>
-          <td class='text-center fw-bold'>1</td>
+          <td class='text-center fw-bold'>4</td>
           <td class='text-center'><span class="fl-pill fl-pill-primary">v3.x</span></td>
-          <td><span style="color:var(--f-amber);font-weight:600">Run Sizing Tool ↗</span></td>
-          <td><small style='color:var(--f-text2)'>Sizing Tool optional for v3.x — sensor resource usage is managed by MDE</small></td>
+          <td><span style="color:var(--f-amber);font-weight:600">Run Sizing Tool Γåù</span></td>
+          <td><small style='color:var(--f-text2)'>Sizing Tool optional for v3.x ΓÇö sensor resource usage is managed by MDE</small></td>
+        </tr>
+<tr>
+          <td>WS 2016 or later (v2.x)</td>
+          <td>AD FS (standalone)</td>
+          <td class='text-center'>No</td>
+          <td class='text-center'>Role-based</td>
+          <td class='text-center fw-bold'>2</td>
+          <td class='text-center'><span class="fl-pill fl-pill-secondary">v2.x</span></td>
+          <td><span style="color:var(--f-text2)">Minimal</span></td>
+          <td><small style='color:var(--f-text2)'>Standalone role server ΓÇö sensor v2.x required; DSA mandatory</small></td>
+        </tr>
+<tr>
+          <td>WS 2016 or later (v2.x)</td>
+          <td>AD CS (standalone)</td>
+          <td class='text-center'>No</td>
+          <td class='text-center'>Role-based</td>
+          <td class='text-center fw-bold'>2</td>
+          <td class='text-center'><span class="fl-pill fl-pill-secondary">v2.x</span></td>
+          <td><span style="color:var(--f-text2)">Minimal</span></td>
+          <td><small style='color:var(--f-text2)'>Standalone role server ΓÇö sensor v2.x required; DSA mandatory</small></td>
         </tr>
 <tr>
           <td>WS 2016 or later (v2.x)</td>
@@ -262,7 +276,7 @@
           <td class='text-center fw-bold'>1</td>
           <td class='text-center'><span class="fl-pill fl-pill-secondary">v2.x</span></td>
           <td><span style="color:var(--f-text2)">Minimal</span></td>
-          <td><small style='color:var(--f-text2)'>Standalone role server — sensor v2.x required; DSA mandatory</small></td>
+          <td><small style='color:var(--f-text2)'>Standalone role server ΓÇö sensor v2.x required; DSA mandatory</small></td>
         </tr>
 <tr>
           <td>WS 2016 or later (v2.x)</td>
@@ -272,15 +286,15 @@
           <td class='text-center fw-bold'>1</td>
           <td class='text-center'><span class="fl-pill fl-pill-secondary">v2.x</span></td>
           <td><span style="color:var(--f-text2)">Minimal</span></td>
-          <td><small style='color:var(--f-text2)'>Standalone role server — sensor v2.x required; DSA mandatory</small></td>
+          <td><small style='color:var(--f-text2)'>Standalone role server ΓÇö sensor v2.x required; DSA mandatory</small></td>
         </tr>
           </tbody>
         </table>
       </div>
       <p style="font-size:12px;color:var(--f-text2);margin-top:10px;margin-bottom:0">
         Sizing = sensor-only resource consumption (not total DC capacity). CPU = non-hyperthreaded cores only.
-        &nbsp;<a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/capacity-planning" target="_blank">Capacity Planning Guide ↗</a>
-        &nbsp;|&nbsp;<a href="https://aka.ms/mdi/sizingtool" target="_blank">Download MDI Sizing Tool ↗</a>
+        &nbsp;<a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/capacity-planning" target="_blank">Capacity Planning Guide Γåù</a>
+        &nbsp;|&nbsp;<a href="https://aka.ms/mdi/sizingtool" target="_blank">Download MDI Sizing Tool Γåù</a>
       </p>
     </div>
 
@@ -289,19 +303,19 @@
       <h4>Directory Service Account (DSA)</h4>
       <p><strong>Account type:</strong> Group Managed Service Account (gMSA)</p>
       <p><strong>Required DSA credentials:</strong> 1</p>
-      <p><strong>Notes:</strong> Single forest — one DSA covers all domains.</p>
+      <p><strong>Notes:</strong> Single forest ΓÇö one DSA covers all domains.</p>
               <div class="mt-3">
           <h6 class="fw-bold">gMSA Setup Steps</h6>
           <ol>
-            <!-- KDS Root Key already present — step skipped -->
+            <!-- KDS Root Key already present ΓÇö step skipped -->
             <li>Create the gMSA account and security group using <code>New-ADServiceAccount</code> (see documentation script)</li>
             <li>Add all sensor server computer accounts to the gMSA security group</li>
             <li>Grant DSA read access to the Deleted Objects container using <code>dsacls.exe LCRP</code></li>
-            <li>Verify the "Log on as a service" right on all v2.x sensor servers (<code>secpol.msc</code> or GPO) — only required for v2.x; the v2 sensor service impersonates the gMSA DSA</li>
+            <li>Verify the "Log on as a service" right on all v2.x sensor servers (<code>secpol.msc</code> or GPO) ΓÇö only required for v2.x; the v2 sensor service impersonates the gMSA DSA</li>
             <li>Purge Kerberos tickets after group membership changes: <code>klist purge -li 0x3e7</code></li>
             <li>Register the gMSA in Defender XDR: Settings &gt; Identities &gt; Directory service accounts &gt; Add credentials</li>
           </ol>
-          <a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa" target="_blank">Full gMSA Setup Guide ↗</a>
+          <a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa" target="_blank">Full gMSA Setup Guide Γåù</a>
         </div>
     </div>
 
@@ -319,13 +333,13 @@
         <li><code>sensorpackage-prd.mdi.securitycenter.microsoft.com</code> &mdash; TCP 443 (sensor package download)</li>
       </ul>
       <p style="font-size:12px;color:var(--f-text2);margin-bottom:6px">SSL/TLS inspection is NOT supported. MDI uses certificate-based mutual authentication.</p>
-      <a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-proxy" target="_blank" style="font-size:13px">Proxy Configuration Guide ↗</a>
+      <a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-proxy" target="_blank" style="font-size:13px">Proxy Configuration Guide Γåù</a>
     </div>
 
     <!-- Windows Event Auditing -->
     <div class="section-card">
       <h4>Windows Event Auditing</h4>
-      <p><strong>Recommended approach:</strong> PowerShell — DefenderForIdentity module (recommended for v2.x or mixed environments)</p>
+      <p><strong>Recommended approach:</strong> PowerShell ΓÇö DefenderForIdentity module (recommended for v2.x or mixed environments)</p>
       <p>Use the DefenderForIdentity PowerShell module to apply all required audit settings via Group Policy. This method works for both v2.x and v3.x sensors and provides a configuration report before applying changes.</p>
               <div class="mt-3">
           <h6 class="fw-bold">PowerShell Commands</h6>
@@ -353,7 +367,7 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
           </tbody>
         </table>
       </div>
-      <p style="margin-top:10px;margin-bottom:0"><a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection" target="_blank">Windows Event Auditing Guide ↗</a></p>
+      <p style="margin-top:10px;margin-bottom:0"><a href="https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection" target="_blank">Windows Event Auditing Guide Γåù</a></p>
     </div>
 
     <!-- Deployment Checklist -->
@@ -361,54 +375,54 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
       <h4>Deployment Checklist</h4>
       <div style='margin-bottom:20px'>
           <h5>Phase 1: Pre-Deployment</h5>
-          <div class='fl-alert fl-alert-danger' style='margin-bottom:12px'><strong>🛑 Before running any PowerShell command in this phase:</strong> The cmdlets shown are pre-populated with <code>-WhatIf</code> to prevent unintended changes. <strong>Do not remove <code>-WhatIf</code> unless you have read the full cmdlet documentation, understand exactly what will be changed on the target system, and have obtained the necessary change-management approval.</strong> Some of these commands modify system configuration directly on all sensor servers in scope.</div>
+          <div class='fl-alert fl-alert-danger' style='margin-bottom:12px'><strong>≡ƒ¢æ Before running any PowerShell command in this phase:</strong> The cmdlets shown are pre-populated with <code>-WhatIf</code> to prevent unintended changes. <strong>Do not remove <code>-WhatIf</code> unless you have read the full cmdlet documentation, understand exactly what will be changed on the target system, and have obtained the necessary change-management approval.</strong> Some of these commands modify system configuration directly on all sensor servers in scope.</div>
           <ul class='fl-checklist'>
             <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Assign Security Administrator role in Microsoft Entra ID to the deployment account<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Tenant</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/role-groups' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Assign Security Administrator role in Microsoft Entra ID to the deployment account<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Tenant</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/role-groups' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Install the DefenderForIdentity PowerShell module on the management workstation<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://www.powershellgallery.com/packages/DefenderForIdentity/' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>Install-Module DefenderForIdentity -Scope CurrentUser</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Install the DefenderForIdentity PowerShell module on the management workstation<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://www.powershellgallery.com/packages/DefenderForIdentity/' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Install-Module DefenderForIdentity -Scope CurrentUser</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Confirm Microsoft Defender for Endpoint (MDE) is deployed on all v3.x target DCs<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Confirm Microsoft Defender for Endpoint (MDE) is deployed on all v3.x target DCs<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Verify March 2026 or later cumulative update is installed on all v3.x target DCs<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Verify March 2026 or later cumulative update is installed on all v3.x target DCs<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Run Test-MdiReadiness.ps1 from a management workstation — queries all DCs, CA servers, and Entra Connect servers remotely and generates an HTML + JSON readiness report. Available from Defender portal: Settings &gt; Identities &gt; Tools, or GitHub.<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://github.com/microsoft/Microsoft-Defender-for-Identity/tree/main/Test-MdiReadiness' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>.\Test-MdiReadiness.ps1</code><a href='https://github.com/microsoft/Microsoft-Defender-for-Identity/tree/main/Test-MdiReadiness' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Run Test-MdiReadiness.ps1 from a management workstation ΓÇö queries all DCs, CA servers, and Entra Connect servers remotely and generates an HTML + JSON readiness report. Available from Defender portal: Settings &gt; Identities &gt; Tools, or GitHub.<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://github.com/microsoft/Microsoft-Defender-for-Identity/tree/main/Test-MdiReadiness' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>.\Test-MdiReadiness.ps1</code><a href='https://github.com/microsoft/Microsoft-Defender-for-Identity/tree/main/Test-MdiReadiness' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Set Power Option to High Performance on all sensor servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#sensor-requirements-and-recommendations' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration ProcessorPerformance -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Set Power Option to High Performance on all sensor servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#sensor-requirements-and-recommendations' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration ProcessorPerformance -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Verify VM memory is fully allocated — disable Dynamic Memory on Hyper-V / VMware (reserve all guest memory)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers (VM)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#dynamic-memory-requirements' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Verify VM memory is fully allocated ΓÇö disable Dynamic Memory on Hyper-V / VMware (reserve all guest memory)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers (VM)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#dynamic-memory-requirements' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Verify time synchronization within 5 minutes across all sensor servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#sensor-requirements-and-recommendations' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Verify time synchronization within 5 minutes across all sensor servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#sensor-requirements-and-recommendations' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
           </ul>
@@ -420,19 +434,19 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
             <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Allow outbound TCP 443 to &lt;workspace-name&gt;sensorapi.atp.azure.com from all sensor servers (no SSL inspection). The workspace name is derived from your Entra tenant name — find it in the Defender portal: Settings &gt; System &gt; About &gt; Workspace Name.<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#required-ports' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Allow outbound TCP 443 to &lt;workspace-name&gt;sensorapi.atp.azure.com from all sensor servers (no SSL inspection). The workspace name is derived from your Entra tenant name ΓÇö find it in the Defender portal: Settings &gt; System &gt; About &gt; Workspace Name.<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#required-ports' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Allow outbound TCP/UDP 53 (DNS) from all sensor servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#required-ports' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Allow outbound TCP/UDP 53 (DNS) from all sensor servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-2#required-ports' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Test connectivity from each sensor server to MDI cloud service using Test-MDISensorApiConnection or browser ping to &lt;workspace&gt;sensorapi.atp.azure.com/tri/sensor/api/ping<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/test-connectivity' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Test connectivity from each sensor server to MDI cloud service using Test-MDISensorApiConnection or browser ping to &lt;workspace&gt;sensorapi.atp.azure.com/tri/sensor/api/ping<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/test-connectivity' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
           </ul>
@@ -444,97 +458,133 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
             <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Open Microsoft Defender portal (security.microsoft.com) — first sign-in with Security Administrator role creates the MDI workspace automatically<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Tenant</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/deploy-defender-identity' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Open Microsoft Defender portal (security.microsoft.com) ΓÇö first sign-in with Security Administrator role creates the MDI workspace automatically<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Tenant</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/deploy-defender-identity' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Create gMSA account and associated security group using the New-ADServiceAccount PowerShell script from the documentation<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Create gMSA account and associated security group using the New-ADServiceAccount PowerShell script from the documentation<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Add all sensor server computer accounts to the gMSA security group<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Add all sensor server computer accounts to the gMSA security group<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Purge Kerberos tickets on sensor servers after group membership change: klist purge -li 0x3e7<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Purge Kerberos tickets on sensor servers after group membership change: klist purge -li 0x3e7<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>All sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Verify gMSA has &quot;Log on as a service&quot; right on all v2.x sensor servers — the v2 sensor service runs as LocalService and impersonates the gMSA DSA; grant the right via Local Security Policy (secpol.msc) or GPO if the right is restricted<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v2.x sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa#verify-that-the-gmsa-account-has-the-required-rights' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Verify gMSA has &quot;Log on as a service&quot; right on all v2.x sensor servers ΓÇö the v2 sensor service runs as LocalService and impersonates the gMSA DSA; grant the right via Local Security Policy (secpol.msc) or GPO if the right is restricted<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v2.x sensor servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa#verify-that-the-gmsa-account-has-the-required-rights' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Grant DSA read access to the Deleted Objects container using the PowerShell script provided in the docs (sets List Contents + Read Property via dsacls.exe)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa#grant-required-directory-service-account-permissions' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Grant DSA read access to the Deleted Objects container using the PowerShell script provided in the docs (sets List Contents + Read Property via dsacls.exe)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa#grant-required-directory-service-account-permissions' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Register DSA credentials in Microsoft Defender XDR: Settings &gt; Identities &gt; Directory service accounts &gt; Add credentials<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa#configure-a-directory-service-account-in-microsoft-defender-xdr' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Register DSA credentials in Microsoft Defender XDR: Settings &gt; Identities &gt; Directory service accounts &gt; Add credentials<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/create-directory-service-account-gmsa#configure-a-directory-service-account-in-microsoft-defender-xdr' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Grant sensor computer account SELECT + EXECUTE permissions on ADSync database (required only if external SQL instance is used for Entra Connect)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Entra Connect Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#configure-permissions-for-the-microsoft-entra-connect-adsync-database' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Grant DSA db_datareader permission on the AD FS AdfsConfiguration database on all AD FS servers (T-SQL or PowerShell)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>AD FS Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#configure-read-permissions-for-the-ad-fs-database' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Grant sensor computer account SELECT + EXECUTE permissions on ADSync database (required only if external SQL instance is used for Entra Connect)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Entra Connect Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#configure-permissions-for-the-microsoft-entra-connect-adsync-database' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
           </ul>
         </div>
 <div style='margin-bottom:20px'>
           <h5>Phase 4: Windows Event Auditing</h5>
-          <div class='fl-alert fl-alert-danger' style='margin-bottom:12px'><strong>🛑 Before running any PowerShell command in this phase:</strong> The <code>Set-MDIConfiguration</code> cmdlets shown are pre-populated with <code>-WhatIf</code>. When executed without <code>-WhatIf</code>, these cmdlets <strong>create and link Group Policy Objects in your Active Directory domain</strong>, which will immediately affect all domain controllers or servers in scope. <strong>Do not proceed without fully understanding the cmdlet behavior, reviewing the WhatIf output, and obtaining change-management approval.</strong> Always run the <code>-WhatIf</code> version first, review every line of output, then re-run without <code>-WhatIf</code> only when you are certain the changes are correct and approved.</div>
+          <div class='fl-alert fl-alert-danger' style='margin-bottom:12px'><strong>≡ƒ¢æ Before running any PowerShell command in this phase:</strong> The <code>Set-MDIConfiguration</code> cmdlets shown are pre-populated with <code>-WhatIf</code>. When executed without <code>-WhatIf</code>, these cmdlets <strong>create and link Group Policy Objects in your Active Directory domain</strong>, which will immediately affect all domain controllers or servers in scope. <strong>Do not proceed without fully understanding the cmdlet behavior, reviewing the WhatIf output, and obtaining change-management approval.</strong> Always run the <code>-WhatIf</code> version first, review every line of output, then re-run without <code>-WhatIf</code> only when you are certain the changes are correct and approved.</div>
           <ul class='fl-checklist'>
             <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Run a configuration report to review current audit policy gaps before making any changes<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#before-you-begin' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>New-MDIConfigurationReport -Path &#39;C:\MDIReports&#39; -Mode Domain -OpenHtmlReport</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/new-mdiconfigurationreport?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Run a configuration report to review current audit policy gaps before making any changes<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#before-you-begin' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>New-MDIConfigurationReport -Path &#39;C:\MDIReports&#39; -Mode Domain -OpenHtmlReport</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/new-mdiconfigurationreport?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Apply Advanced Directory Services Audit Policy on DCs (events 4726, 4728–4733, 4741–4743, 4753–4758, 4776, 5136, 7045)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Domain Controllers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-directory-services-advanced-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration AdvancedAuditPolicyDCs -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Apply Advanced Directory Services Audit Policy on DCs (events 4726, 4728ΓÇô4733, 4741ΓÇô4743, 4753ΓÇô4758, 4776, 5136, 7045)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Domain Controllers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-directory-services-advanced-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration AdvancedAuditPolicyDCs -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Configure NTLM auditing on DCs (event 8004)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Domain Controllers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-ntlm-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration NTLMAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Configure NTLM auditing on DCs (event 8004)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Domain Controllers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-ntlm-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration NTLMAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Configure auditing SACL on the domain root object (event 4662)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-domain-object-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='font-size:12px;color:var(--f-text2);margin-top:0'>Configure via Active Directory Users and Computers (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-domain-object-auditing' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div><div style='font-size:11px;color:var(--f-text2);margin-top:6px;margin-bottom:2px;letter-spacing:.03em'>— or —</div><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration DomainObjectAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Configure auditing SACL on the domain root object (event 4662)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-domain-object-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration DomainObjectAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div><div style='font-size:12px;color:var(--f-text2);margin-top:3px'><em>Alternative (GUI):</em> Configure via Active Directory Users and Computers (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-domain-object-auditing' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Enable AD Recycle Bin for full object deletion tracking<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-windows-event-collection-using-powershell' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration AdRecycleBin -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Enable AD Recycle Bin for full object deletion tracking<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-windows-event-collection-using-powershell' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration AdRecycleBin -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Configure auditing on the AD Configuration Container (required for Exchange environments)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-the-configuration-container' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='font-size:12px;color:var(--f-text2);margin-top:0'>Configure via ADSI Edit (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-the-configuration-container' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div><div style='font-size:11px;color:var(--f-text2);margin-top:6px;margin-bottom:2px;letter-spacing:.03em'>— or —</div><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration ConfigurationContainerAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Configure auditing on the AD Configuration Container (required for Exchange environments)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-the-configuration-container' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration ConfigurationContainerAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div><div style='font-size:12px;color:var(--f-text2);margin-top:3px'><em>Alternative (GUI):</em> Configure via ADSI Edit (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-the-configuration-container' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Configure Entra Connect server audit policy via GPO (Audit Logon/Logoff &gt; Audit Logon: Success and Failure) — use -SkipGpoLink so the GPO is created unlinked, then manually link it to the OU containing your Entra Connect servers only<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Entra Connect Servers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-microsoft-entra-connect' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a><div style='font-size:12px;color:var(--f-text2);margin-top:0'>Configure via Group Policy Management (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-microsoft-entra-connect' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div><div style='font-size:11px;color:var(--f-text2);margin-top:6px;margin-bottom:2px;letter-spacing:.03em'>— or —</div><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration EntraConnectAuditing -SkipGpoLink -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a></div>
+                Configure AD FS object-level auditing SACL on the AD FS configuration container in AD<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Active Directory</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-object-level-auditing-on-the-ad-fs-configuration-folder' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration AdfsAuditing -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div><div style='font-size:12px;color:var(--f-text2);margin-top:3px'><em>Alternative (GUI):</em> Configure via ADSI Edit (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-object-level-auditing-on-the-ad-fs-configuration-folder' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Configure AD FS audit Group Policy via GPO: Computer Config &gt; Policies &gt; Windows Settings &gt; Security Settings &gt; Advanced Audit Policy &gt; Object Access &gt; Audit Application Generated: Success and Failure<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>AD FS Servers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-a-group-policy-for-event-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Enable verbose auditing on all AD FS servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>AD FS Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-verbose-logging-for-ad-fs-events' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-AdfsProperties -AuditLevel Verbose</code><a href='https://learn.microsoft.com/en-us/powershell/module/adfs/set-adfsproperties' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Configure CA-level audit policy on AD CS servers, then restart the Certificate Services service<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>AD CS Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-an-ad-cs-server' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>certutil -setreg CA\AuditFilter 127; Restart-Service certsvc</code><a href='https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/certutil#-setreg' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Apply Advanced Audit Policy on CA servers via GPO (Object Access &gt; Audit Certification Services: Success and Failure) ΓÇö use -SkipGpoLink so the GPO is created unlinked, then manually link it to the OU containing your Issuing CA servers only<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>AD CS Servers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-an-ad-cs-server' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration AdvancedAuditPolicyCAs -SkipGpoLink -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Configure Entra Connect server audit policy via GPO (Audit Logon/Logoff &gt; Audit Logon: Success and Failure) ΓÇö use -SkipGpoLink so the GPO is created unlinked, then manually link it to the OU containing your Entra Connect servers only<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Entra Connect Servers (GPO)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-microsoft-entra-connect' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a><div style='margin-top:4px'><code>Set-MDIConfiguration -Mode Domain -Configuration EntraConnectAuditing -SkipGpoLink -WhatIf</code><a href='https://learn.microsoft.com/en-us/powershell/module/defenderforidentity/set-mdiconfiguration?view=defenderforidentity-latest' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div><div style='font-size:12px;color:var(--f-text2);margin-top:3px'><em>Alternative (GUI):</em> Configure via Group Policy Management (see docs)<a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-windows-event-collection#configure-auditing-on-microsoft-entra-connect' target='_blank' style='margin-left:4px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a></div>
               </div>
             </li>
           </ul>
@@ -546,37 +596,55 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
             <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Activate MDI sensor v3.x: Defender portal &gt; Settings &gt; Identities &gt; Activation &gt; select eligible DCs &gt; Activate<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Activate MDI sensor v3.x: Defender portal &gt; Settings &gt; Identities &gt; Activation &gt; select eligible DCs &gt; Activate<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Wait up to 1 hour for the first v3.x sensor to show status Running in Defender portal (subsequent sensors appear within 5 minutes)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor#confirm-sensor-activation' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Wait up to 1 hour for the first v3.x sensor to show status Running in Defender portal (subsequent sensors appear within 5 minutes)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/activate-sensor#confirm-sensor-activation' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Download MDI sensor v2.x package and copy access key: Defender portal &gt; Settings &gt; Identities &gt; Sensors &gt; Add sensor &gt; Continue with classic sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/download-sensor' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Download MDI sensor v2.x package and copy access key: Defender portal &gt; Settings &gt; Identities &gt; Sensors &gt; Add sensor &gt; Continue with classic sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Management workstation</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/download-sensor' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Install MDI sensor on BOTH active AND staging Entra Connect servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Entra Connect Servers (Active + Staging)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Install MDI sensor on all standalone AD FS federation servers (NOT required on WAP servers)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Standalone AD FS Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Configure resolver DC FQDN for Entra Connect sensors: Defender portal &gt; Settings &gt; Identities &gt; Sensors &gt; select sensor &gt; Manage sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#post-installation-steps-optional' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Configure resolver DC FQDN for AD FS sensors: Defender portal &gt; Settings &gt; Identities &gt; Sensors &gt; select sensor &gt; Manage sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#post-installation-steps-optional' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Review and configure sensor settings in Defender portal: verify network adapters and description for each sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-sensor-settings' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Install MDI sensor on all AD CS servers with the Certification Authority Role Service (not required on offline AD CS servers)<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Standalone AD CS Servers</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Install MDI sensor on BOTH active AND staging Entra Connect servers<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Entra Connect Servers (Active + Staging)</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Configure resolver DC FQDN for Entra Connect sensors: Defender portal &gt; Settings &gt; Identities &gt; Sensors &gt; select sensor &gt; Manage sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#post-installation-steps-optional' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Review and configure sensor settings in Defender portal: verify network adapters and description for each sensor<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-sensor-settings' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
           </ul>
@@ -588,19 +656,19 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
             <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Confirm all sensors show status Running in Defender portal: Settings &gt; Identities &gt; Sensors<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-sensor-settings#validate-successful-deployment' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Confirm all sensors show status Running in Defender portal: Settings &gt; Identities &gt; Sensors<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-sensor-settings#validate-successful-deployment' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Configure Unified Sensor RPC Auditing for v3.x DCs: Defender portal &gt; Settings &gt; Microsoft Defender XDR &gt; Asset Rule Management &gt; Create rule &gt; apply tag “Unified Sensor RPC Audit” targeting v3.x DCs. Unlocks additional identity detections. Allow up to 1 hour for the rule to take effect.<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3#configure-rpc-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Configure Unified Sensor RPC Auditing for v3.x DCs: Defender portal &gt; Settings &gt; Microsoft Defender XDR &gt; Asset Rule Management &gt; Create rule &gt; apply tag ΓÇ£Unified Sensor RPC AuditΓÇ¥ targeting v3.x DCs. Unlocks additional identity detections. Allow up to 1 hour for the rule to take effect.<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>v3.x DCs</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/prerequisites-sensor-version-3#configure-rpc-auditing' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Run DNS connectivity test from a member device: nslookup &gt; server &lt;DC-FQDN&gt; &gt; ls -d &lt;domain&gt;<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Member device</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-sensor-settings#verify-security-alert-functionality' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Run DNS connectivity test from a member device: nslookup &gt; server &lt;DC-FQDN&gt; &gt; ls -d &lt;domain&gt;<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Member device</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/configure-sensor-settings#verify-security-alert-functionality' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
 <li class='fl-checklist-item'>
@@ -612,7 +680,19 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
 <li class='fl-checklist-item'>
               <input type='checkbox' onchange='toggleDone(this)'>
               <div class='item-body'>
-                Review health alerts in Defender portal: Settings &gt; Identities &gt; Health issues — resolve any configuration warnings<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/health-alerts' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>📖</a>
+                Review health alerts in Defender portal: Settings &gt; Identities &gt; Health issues ΓÇö resolve any configuration warnings<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/health-alerts' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Validate AD FS detection: Advanced Hunting &gt; IdentityLogonEvents | where Protocol contains &quot;Adfs&quot;<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#validate-successful-deployment' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
+              </div>
+            </li>
+<li class='fl-checklist-item'>
+              <input type='checkbox' onchange='toggleDone(this)'>
+              <div class='item-body'>
+                Validate AD CS detection: Advanced Hunting &gt; IdentityDirectoryEvents | where Protocol == &quot;Adcs&quot;<span class='fl-pill fl-pill-secondary' style='margin-left:6px;font-size:11px'>Defender XDR Portal</span><a href='https://learn.microsoft.com/en-us/defender-for-identity/deploy/active-directory-federation-services#validate-successful-deployment' target='_blank' style='margin-left:6px;font-size:12px;color:var(--f-text2)' title='Microsoft Learn'>≡ƒôû</a>
               </div>
             </li>
           </ul>
@@ -648,7 +728,7 @@ Set-MDIConfiguration -Mode Domain -Configuration All</code></pre>
           </ul>
         </div>
       </div>
-      <p style="font-size:12px;color:var(--f-text2);margin-top:8px;margin-bottom:0">All references: Microsoft Learn (learn.microsoft.com) — last verified April 2026.</p>
+      <p style="font-size:12px;color:var(--f-text2);margin-top:8px;margin-bottom:0">All references: Microsoft Learn (learn.microsoft.com) ΓÇö last verified April 2026.</p>
     </div>
 
   </div>
