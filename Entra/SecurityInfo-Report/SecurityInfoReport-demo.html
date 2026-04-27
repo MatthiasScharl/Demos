@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Security Info Report — Demo</title>
+  <title>Security Info Report</title>
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link  rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
   <link  rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
@@ -16,6 +16,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
   <style>
+    /* ── Fluent UI colour tokens ───────────────────────────────── */
     :root {
       --f-bg:         #141414;
       --f-surface:    #1b1a19;
@@ -35,98 +36,168 @@
       --f-neutral:    #d2d0ce;
       --f-neutral-bg: #3b3a39;
     }
+    /* ── Base ──────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 14px; background: var(--f-bg); color: var(--f-text); margin: 0; padding: 0;
+      font-size: 14px;
+      background: var(--f-bg);
+      color: var(--f-text);
+      margin: 0; padding: 0;
     }
-    .page-header { background: var(--f-surface); border-bottom: 1px solid var(--f-border); padding: 16px 24px 14px; }
+    /* ── Page header ────────────────────────────────────────────  */
+    .page-header {
+      background: var(--f-surface);
+      border-bottom: 1px solid var(--f-border);
+      padding: 16px 24px 14px;
+    }
     .page-breadcrumb { font-size: 12px; color: var(--f-text2); margin-bottom: 6px; }
     .page-breadcrumb a { color: var(--f-blue); text-decoration: none; }
     .page-breadcrumb a:hover { text-decoration: underline; }
     .page-title { font-size: 20px; font-weight: 600; color: var(--f-text); margin: 0 0 6px; }
     .page-meta { font-size: 12px; color: var(--f-text2); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+    /* ── Content area ───────────────────────────────────────────  */
     .content-area { padding: 20px 24px; }
+    /* ── Stat cards ─────────────────────────────────────────────  */
     .stat-card { background: var(--f-surface); border: 1px solid var(--f-border); border-radius: 4px; padding: 16px; height: 100%; }
     .stat-label { font-size: 12px; color: var(--f-text2); margin-bottom: 4px; }
     .stat-value { font-size: 28px; font-weight: 600; line-height: 1.2; color: var(--f-text); }
     .stat-sub   { font-size: 13px; font-weight: 400; color: var(--f-text2); margin-left: 4px; }
-    .v-green  { color: var(--f-green)  !important; }
-    .v-red    { color: var(--f-red)    !important; }
-    .v-blue   { color: var(--f-blue)   !important; }
-    .v-teal   { color: var(--f-teal)   !important; }
-    .v-amber  { color: var(--f-amber)  !important; }
-    .fl-pill { display: inline-flex; align-items: center; padding: 2px 10px; border-radius: 12px; font-size: 12px; white-space: nowrap; }
+    .v-green  { color: var(--f-green) !important; }
+    .v-red    { color: var(--f-red) !important; }
+    .v-blue   { color: var(--f-blue) !important; }
+    .v-teal   { color: var(--f-teal) !important; }
+    .v-amber  { color: var(--f-amber) !important; }
+    /* ── Status pills ───────────────────────────────────────────  */
+    .fl-pill {
+      display: inline-flex; align-items: center; padding: 2px 10px;
+      border-radius: 12px; font-size: 12px; white-space: nowrap;
+    }
     .fl-pill-success   { background: var(--f-green-bg);   color: var(--f-green); }
     .fl-pill-danger    { background: var(--f-red-bg);     color: var(--f-red); }
     .fl-pill-primary   { background: #0a2a5a;             color: #6ab7f5; }
     .fl-pill-warning   { background: var(--f-amber-bg);   color: var(--f-amber); }
     .fl-pill-secondary { background: var(--f-neutral-bg); color: var(--f-neutral); }
-    .fl-method { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin: 1px 2px 1px 0; white-space: nowrap; }
+    /* ── Method chips ───────────────────────────────────────────  */
+    .fl-method {
+      display: inline-flex; align-items: center; padding: 2px 8px;
+      border-radius: 12px; font-size: 11px; margin: 1px 2px 1px 0; white-space: nowrap;
+    }
     .fl-method-primary   { background: #0a2a5a;             color: #6ab7f5; }
     .fl-method-info      { background: var(--f-teal-bg);    color: var(--f-teal); }
     .fl-method-success   { background: var(--f-green-bg);   color: var(--f-green); }
     .fl-method-warning   { background: var(--f-amber-bg);   color: var(--f-amber); }
     .fl-method-dark      { background: var(--f-neutral-bg); color: var(--f-neutral); }
     .fl-method-secondary { background: var(--f-neutral-bg); color: var(--f-neutral); }
+    /* ── Filter card ────────────────────────────────────────────  */
     .filter-card { background: var(--f-surface); border: 1px solid var(--f-border); border-radius: 4px; padding: 14px 16px; margin-bottom: 16px; }
     .filter-row  { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
     .filter-row:last-child { margin-bottom: 0; }
-    .filter-group-label { font-size: 11px; font-weight: 600; color: var(--f-text2); text-transform: uppercase; letter-spacing: 0.05em; min-width: 58px; }
-    .fl-filter-btn { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 4px; font-size: 13px; border: 1px solid var(--f-border2); background: var(--f-surface); color: var(--f-text); cursor: pointer; font-family: inherit; transition: background .1s; }
+    .filter-group-label {
+      font-size: 11px; font-weight: 600; color: var(--f-text2);
+      text-transform: uppercase; letter-spacing: 0.05em; min-width: 58px;
+    }
+    .fl-filter-btn {
+      display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 4px;
+      font-size: 13px; border: 1px solid var(--f-border2); background: var(--f-surface);
+      color: var(--f-text); cursor: pointer; font-family: inherit; transition: background .1s;
+    }
     .fl-filter-btn:hover  { background: var(--f-bg); border-color: #9b9b9b; }
     .fl-filter-btn.active { background: var(--f-blue); border-color: var(--f-blue); color: #fff; font-weight: 600; }
     .fl-filter-btn::before { content: none !important; }
-    .adv-input { padding: 4px 10px; border-radius: 4px; border: 1px solid var(--f-border2); background: var(--f-surface); color: var(--f-text); font-family: inherit; font-size: 13px; width: 180px; }
+    /* ── Advanced identity filter ───────────────────────────────  */
+    .adv-input {
+      padding: 4px 10px; border-radius: 4px; border: 1px solid var(--f-border2);
+      background: var(--f-surface); color: var(--f-text); font-family: inherit;
+      font-size: 13px; width: 180px;
+    }
     .adv-input:focus { outline: none; border-color: var(--f-blue); box-shadow: 0 0 0 1px var(--f-blue); }
     .adv-apply { background: var(--f-blue) !important; border-color: var(--f-blue) !important; color: #fff !important; }
     .adv-apply:hover { filter: brightness(1.1); }
-    .adv-conn-btn { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; border: 1px solid var(--f-border2); background: var(--f-surface); color: var(--f-text2); cursor: pointer; font-family: inherit; letter-spacing: 0.04em; }
+    .adv-conn-btn {
+      padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700;
+      border: 1px solid var(--f-border2); background: var(--f-surface);
+      color: var(--f-text2); cursor: pointer; font-family: inherit; letter-spacing: 0.04em;
+    }
     .adv-conn-btn.active { background: var(--f-blue); border-color: var(--f-blue); color: #fff; }
+    /* ── Table card ─────────────────────────────────────────────  */
     .table-card { background: var(--f-surface); border: 1px solid var(--f-border); border-radius: 4px; overflow: hidden; margin-bottom: 20px; }
     .table-toolbar { padding: 10px 16px; border-bottom: 1px solid var(--f-border); display: flex; justify-content: flex-start; gap: 8px; }
-    .fl-btn { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 4px; font-size: 13px; border: 1px solid var(--f-border2); background: var(--f-surface); color: var(--f-text); cursor: pointer; font-family: inherit; }
+    .fl-btn {
+      display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 4px;
+      font-size: 13px; border: 1px solid var(--f-border2); background: var(--f-surface);
+      color: var(--f-text); cursor: pointer; font-family: inherit;
+    }
     .fl-btn:hover { background: var(--f-bg); border-color: #9b9b9b; }
+    /* ── DataTable overrides ────────────────────────────────────  */
     table#mfaTable.dataTable { font-size: 13px; border-collapse: collapse !important; }
-    table#mfaTable.dataTable thead th { background: var(--f-bg) !important; color: var(--f-text) !important; font-weight: 600 !important; border-bottom: 2px solid var(--f-border) !important; border-top: none !important; padding: 10px 12px !important; font-size: 13px !important; }
-    table#mfaTable.dataTable tbody td { padding: 10px 12px !important; border-bottom: 1px solid var(--f-border) !important; vertical-align: middle; background: var(--f-surface) !important; color: var(--f-text); }
+    table#mfaTable.dataTable thead th {
+      background: var(--f-bg) !important; color: var(--f-text) !important;
+      font-weight: 600 !important; border-bottom: 2px solid var(--f-border) !important;
+      border-top: none !important; padding: 10px 12px !important; font-size: 13px !important;
+    }
+    table#mfaTable.dataTable tbody td {
+      padding: 10px 12px !important; border-bottom: 1px solid var(--f-border) !important;
+      vertical-align: middle; background: var(--f-surface) !important; color: var(--f-text);
+    }
     table#mfaTable.dataTable tbody tr:hover td { background: var(--f-bg) !important; }
     table#mfaTable.dataTable tbody tr:last-child td { border-bottom: none !important; }
-    .dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_length select { background: var(--f-surface); border: 1px solid var(--f-border2) !important; border-radius: 4px; padding: 4px 8px; font-size: 13px; color: var(--f-text); font-family: inherit; box-shadow: none !important; }
-    .dataTables_wrapper .dataTables_filter input:focus, .dataTables_wrapper .dataTables_length select:focus { outline: none; border-color: var(--f-blue) !important; box-shadow: 0 0 0 1px var(--f-blue) !important; }
+    .dataTables_wrapper .dataTables_filter input,
+    .dataTables_wrapper .dataTables_length select {
+      background: var(--f-surface); border: 1px solid var(--f-border2) !important;
+      border-radius: 4px; padding: 4px 8px; font-size: 13px;
+      color: var(--f-text); font-family: inherit; box-shadow: none !important;
+    }
+    .dataTables_wrapper .dataTables_filter input:focus,
+    .dataTables_wrapper .dataTables_length select:focus {
+      outline: none; border-color: var(--f-blue) !important; box-shadow: 0 0 0 1px var(--f-blue) !important;
+    }
     .dataTables_wrapper .dataTables_info { font-size: 12px; color: var(--f-text2); }
     .dt-filter-bar { padding: 8px 0 4px; }
     .dt-filter-bar .dataTables_filter { text-align: left !important; float: none !important; }
     .dt-filter-bar .dataTables_filter label { display: inline-flex; align-items: center; gap: 8px; }
     .dataTables_wrapper .dataTables_paginate .paginate_button { border-radius: 4px !important; font-size: 13px !important; color: var(--f-text) !important; }
-    .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover { background: var(--f-blue) !important; border-color: var(--f-blue) !important; color: #fff !important; }
-    .dataTables_wrapper .dataTables_paginate .paginate_button:hover { background: var(--f-bg) !important; border-color: var(--f-border2) !important; color: var(--f-text) !important; }
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      background: var(--f-blue) !important; border-color: var(--f-blue) !important; color: #fff !important;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: var(--f-bg) !important; border-color: var(--f-border2) !important; color: var(--f-text) !important;
+    }
+    /* ── Expand toggle ──────────────────────────────────────────  */
     .methods-detail { display: none; margin-top: 4px; }
-    .sspr-chips { display: none; margin-top: 4px; }
-    .methods-toggle { background: none; border: none; padding: 0 2px; margin-left: 3px; font-size: .7em; color: var(--f-blue); cursor: pointer; opacity: 0.7; vertical-align: baseline; font-family: inherit; }
+    .sspr-chips    { display: none; margin-top: 4px; }
+    .methods-toggle {
+      background: none; border: none; padding: 0 2px; margin-left: 3px;
+      font-size: .7em; color: var(--f-blue); cursor: pointer; opacity: 0.7;
+      vertical-align: baseline; font-family: inherit;
+    }
     .methods-toggle:hover { opacity: 1; }
     #mfaTable tbody tr:has(.methods-summary) { cursor: pointer; }
+    /* ── Utilities ──────────────────────────────────────────────  */
     .text-muted, .text-secondary { color: var(--f-text2) !important; }
     td small { font-size: 0.77em; }
+    /* ── Footer ─────────────────────────────────────────────────  */
+    .page-footer { font-size: 12px; color: var(--f-text2); padding: 8px 0 20px; }
     .demo-banner { background: #fff4ce; border-bottom: 1px solid #f0c040; padding: 6px 24px; font-size: 12px; color: #5c3d00; }
-  </style>
+    </style>
 </head>
 <body>
+  <div class="demo-banner">&#x26A0;&#xFE0F; <strong>Demo file — sample data only.</strong> No real user data or tenant information is included.</div>
 
-  <div class="demo-banner">
-    ⚠️ <strong>Demo file — sample data only.</strong> Generated by <code>Get-SecurityInfoReport.ps1</code> when run against a real tenant.
-  </div>
-
+  <!-- Page header -->
   <div class="page-header">
     <div class="page-breadcrumb">
       <a href="#">Protection</a> &rsaquo; <a href="#">Authentication methods</a> &rsaquo; Security Info registration
     </div>
     <h1 class="page-title">Security Info Report</h1>
     <div class="page-meta">
-      <span>Generated 2026-04-27 20:00:00</span>
-      &middot; <span>Collected 2026-04-27 19:55:00</span>
-      &middot; <span>admin@contoso.onmicrosoft.com</span>
-      &middot; <span>Tenant: contoso.onmicrosoft.com</span>
+      <span>Generated 2026-04-27 20:49:27</span>
+      <span>&middot; Collected 04/27/2026 19:55:00</span>
+      <span>&middot; admin@contoso.onmicrosoft.com</span>
+      <span>&middot; Tenant: aaaabbbb-cccc-dddd-eeee-ffffffffffff</span>
+      
+      
     </div>
   </div>
 
@@ -155,25 +226,25 @@
       <div class="col-6 col-md-3 col-xl-2">
         <div class="stat-card">
           <div class="stat-label">Authenticator</div>
-          <div class="stat-value v-blue">8</div>
+          <div class="stat-value v-blue">7</div>
         </div>
       </div>
       <div class="col-6 col-md-3 col-xl-2">
         <div class="stat-card">
           <div class="stat-label">FIDO2</div>
-          <div class="stat-value v-green">4</div>
+          <div class="stat-value v-green">3</div>
         </div>
       </div>
       <div class="col-6 col-md-3 col-xl-2">
         <div class="stat-card">
           <div class="stat-label">Phone</div>
-          <div class="stat-value v-teal">6</div>
+          <div class="stat-value v-teal">4</div>
         </div>
       </div>
       <div class="col-6 col-md-3 col-xl-2">
         <div class="stat-card">
           <div class="stat-label">Email OTP</div>
-          <div class="stat-value v-amber">3</div>
+          <div class="stat-value v-amber">2</div>
         </div>
       </div>
       <div class="col-6 col-md-3 col-xl-2">
@@ -206,10 +277,10 @@
       </div>
       <div class="filter-row">
         <span class="filter-group-label">Method</span>
-        <button class="fl-filter-btn filter-btn" data-filter="Authenticator">Authenticator (8)</button>
-        <button class="fl-filter-btn filter-btn" data-filter="Fido2">FIDO2 (4)</button>
-        <button class="fl-filter-btn filter-btn" data-filter="Phone">Phone (6)</button>
-        <button class="fl-filter-btn filter-btn" data-filter="Email">Email OTP (3)</button>
+        <button class="fl-filter-btn filter-btn" data-filter="Authenticator">Authenticator (7)</button>
+        <button class="fl-filter-btn filter-btn" data-filter="Fido2">FIDO2 (3)</button>
+        <button class="fl-filter-btn filter-btn" data-filter="Phone">Phone (4)</button>
+        <button class="fl-filter-btn filter-btn" data-filter="Email">Email OTP (2)</button>
         <button class="fl-filter-btn filter-btn" data-filter="WHFB">Windows Hello (2)</button>
         <button class="fl-filter-btn filter-btn" data-filter="SoftwareOath">TOTP (2)</button>
         <button class="fl-filter-btn filter-btn" data-filter="TAP">TAP (1)</button>
@@ -249,250 +320,84 @@
             </tr>
           </thead>
           <tbody>
-
-            <!-- 1: Authenticator + FIDO2 + Phone -->
-            <tr data-hasmfa="true" data-methods="Authenticator,Fido2,Phone" data-accountenabled="true" data-usertype="member" data-name="anna schmidt" data-upn="anna.schmidt@contoso.com">
+            <tr data-hasmfa="true" data-methods="Authenticator,Fido2,Phone" data-accountenabled="true" data-usertype="member" data-name="Anna Schmidt" data-upn="anna.schmidt@contoso.com">
               <td>Anna Schmidt<br><small class="text-muted">anna.schmidt@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (2)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <span class="fl-method fl-method-success">FIDO2</span>
-                  <span class="fl-method fl-method-info">Phone</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: iPhone 15 Pro | Mode: push</small>
-                  <span class="fl-method fl-method-success">FIDO2</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">YubiKey 5C NFC | YubiKey</small>
-                  <span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 151 12345678 | SMS: enabled</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 2: Authenticator + Phone + Email OTP -->
-            <tr data-hasmfa="true" data-methods="Authenticator,Phone,Email" data-accountenabled="true" data-usertype="member" data-name="ben müller" data-upn="ben.mueller@contoso.com">
-              <td>Ben Müller<br><small class="text-muted">ben.mueller@contoso.com</small></td>
+              <td><span class="fl-pill fl-pill-success">Capable (2)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-success">FIDO2</span><span class="fl-method fl-method-info">Phone</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: iPhone 15 Pro | Mode: push</small><span class="fl-method fl-method-success">FIDO2</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">YubiKey 5C NFC | YubiKey</small><span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 151 12345678 | SMS: enabled</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Authenticator,Phone,Email" data-accountenabled="true" data-usertype="member" data-name="Ben M&#252;ller" data-upn="ben.mueller@contoso.com">
+              <td>Ben M&#252;ller<br><small class="text-muted">ben.mueller@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (3)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span><span class="fl-method fl-method-warning">Email OTP</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <span class="fl-method fl-method-info">Phone</span>
-                  <span class="fl-method fl-method-warning">Email OTP</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Samsung Galaxy S24 | Mode: push</small>
-                  <span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 170 87654321 | SMS: enabled</small>
-                  <span class="fl-method fl-method-warning">Email OTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">ben.mueller@contoso.com</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 3: FIDO2 passkey (not SSPR capable) -->
-            <tr data-hasmfa="true" data-methods="Fido2" data-accountenabled="true" data-usertype="member" data-name="clara weber" data-upn="clara.weber@contoso.com">
+              <td><span class="fl-pill fl-pill-success">Capable (3)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span><span class="fl-method fl-method-warning">Email OTP</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span><span class="fl-method fl-method-warning">Email OTP</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Samsung Galaxy S24 | Mode: push</small><span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 171 98765432 | SMS: enabled</small><span class="fl-method fl-method-warning">Email OTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">ben.mueller@gmail.com</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Fido2" data-accountenabled="true" data-usertype="member" data-name="Clara Weber" data-upn="clara.weber@contoso.com">
               <td>Clara Weber<br><small class="text-muted">clara.weber@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-danger">Not Capable</span>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-success">FIDO2</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-success">FIDO2</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Passkey on macOS | Platform Passkey</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 4: Authenticator + WHFB + TOTP -->
-            <tr data-hasmfa="true" data-methods="Authenticator,WHFB,SoftwareOath" data-accountenabled="true" data-usertype="member" data-name="david fischer" data-upn="david.fischer@contoso.com">
+              <td><span class="fl-pill fl-pill-danger">Not Capable</span></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-success">FIDO2</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-success">FIDO2</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Passkey (iCloud) | Apple</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Authenticator,WHFB,SoftwareOath" data-accountenabled="true" data-usertype="member" data-name="David Fischer" data-upn="david.fischer@contoso.com">
               <td>David Fischer<br><small class="text-muted">david.fischer@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (2)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-warning">TOTP</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <span class="fl-method fl-method-dark">Windows Hello</span>
-                  <span class="fl-method fl-method-warning">TOTP</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Surface Laptop 6 | Mode: push</small>
-                  <span class="fl-method fl-method-dark">Windows Hello</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Surface Laptop 6</small>
-                  <span class="fl-method fl-method-warning">TOTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Software OATH/TOTP (specific app not identifiable via API)</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 5: Phone only -->
-            <tr data-hasmfa="true" data-methods="Phone" data-accountenabled="true" data-usertype="member" data-name="eva hartmann" data-upn="eva.hartmann@contoso.com">
+              <td><span class="fl-pill fl-pill-success">Capable (1)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-warning">TOTP</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-dark">Windows Hello</span><span class="fl-method fl-method-warning">TOTP</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Surface Pro 10 | Mode: push</small><span class="fl-method fl-method-dark">Windows Hello</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Surface Pro 10</small><span class="fl-method fl-method-warning">TOTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Software OATH/TOTP (specific app not identifiable via API)</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Phone" data-accountenabled="true" data-usertype="member" data-name="Eva Hartmann" data-upn="eva.hartmann@contoso.com">
               <td>Eva Hartmann<br><small class="text-muted">eva.hartmann@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (1)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-info">Phone</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-info">Phone</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 160 22334455 | SMS: notAllowedByPolicy</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 6: Authenticator + FIDO2 (YubiKey) -->
-            <tr data-hasmfa="true" data-methods="Authenticator,Fido2" data-accountenabled="true" data-usertype="member" data-name="felix becker" data-upn="felix.becker@contoso.com">
+              <td><span class="fl-pill fl-pill-success">Capable (1)</span><div class="sspr-chips"><span class="fl-method fl-method-info">Phone</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-info">Phone</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 151 55544433 | SMS: enabled</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Authenticator,Fido2" data-accountenabled="true" data-usertype="member" data-name="Felix Becker" data-upn="felix.becker@contoso.com">
               <td>Felix Becker<br><small class="text-muted">felix.becker@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (1)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <span class="fl-method fl-method-success">FIDO2</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Pixel 9 | Mode: push</small>
-                  <span class="fl-method fl-method-success">FIDO2</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">YubiKey 5Ci | YubiKey</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 7: Email OTP + TOTP (guest) -->
-            <tr data-hasmfa="true" data-methods="Email,SoftwareOath" data-accountenabled="true" data-usertype="guest" data-name="gabriela rossi" data-upn="gabriela.rossi_partner.com#ext#@contoso.onmicrosoft.com">
-              <td>Gabriela Rossi<br><small class="text-muted">gabriela.rossi_partner.com#ext#@contoso.onmicrosoft.com</small></td>
+              <td><span class="fl-pill fl-pill-success">Capable (1)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-success">FIDO2</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: OnePlus 12 | Mode: push</small><span class="fl-method fl-method-success">FIDO2</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">YubiKey 5 NFC | YubiKey</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Email,SoftwareOath" data-accountenabled="true" data-usertype="guest" data-name="Gabriela Rossi" data-upn="gabriela.rossi_partner.com#EXT#@contoso.onmicrosoft.com">
+              <td>Gabriela Rossi<br><small class="text-muted">gabriela.rossi_partner.com#EXT#@contoso.onmicrosoft.com</small></td>
               <td><span class="fl-pill fl-pill-warning">Guest</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (2)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-warning">Email OTP</span><span class="fl-method fl-method-warning">TOTP</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-warning">Email OTP</span>
-                  <span class="fl-method fl-method-warning">TOTP</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-warning">Email OTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">gabriela.rossi@partner.com</small>
-                  <span class="fl-method fl-method-warning">TOTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Software OATH/TOTP (specific app not identifiable via API)</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 8: Authenticator + Phone + TAP -->
-            <tr data-hasmfa="true" data-methods="Authenticator,Phone,TAP" data-accountenabled="true" data-usertype="member" data-name="hans keller" data-upn="hans.keller@contoso.com">
+              <td><span class="fl-pill fl-pill-success">Capable (2)</span><div class="sspr-chips"><span class="fl-method fl-method-warning">Email OTP</span><span class="fl-method fl-method-warning">TOTP</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-warning">Email OTP</span><span class="fl-method fl-method-warning">TOTP</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-warning">Email OTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">g.rossi@partner.com</small><span class="fl-method fl-method-warning">TOTP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Software OATH/TOTP (specific app not identifiable via API)</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Authenticator,Phone,TAP" data-accountenabled="true" data-usertype="member" data-name="Hans Keller" data-upn="hans.keller@contoso.com">
               <td>Hans Keller<br><small class="text-muted">hans.keller@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (2)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <span class="fl-method fl-method-info">Phone</span>
-                  <span class="fl-method fl-method-secondary">TAP</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: iPhone 14 | Mode: push</small>
-                  <span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 172 55566677 | SMS: enabled</small>
-                  <span class="fl-method fl-method-secondary">TAP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Status: Usable | Lifetime: 480min</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 9: Authenticator + WHFB (guest) -->
-            <tr data-hasmfa="true" data-methods="Authenticator,WHFB" data-accountenabled="true" data-usertype="guest" data-name="ingrid novak" data-upn="ingrid.novak_extern.de#ext#@contoso.onmicrosoft.com">
-              <td>Ingrid Novak<br><small class="text-muted">ingrid.novak_extern.de#ext#@contoso.onmicrosoft.com</small></td>
+              <td><span class="fl-pill fl-pill-success">Capable (2)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-info">Phone</span><span class="fl-method fl-method-secondary">TAP</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: iPhone 13 | Mode: push</small><span class="fl-method fl-method-info">Phone</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Mobile: +49 160 11223344 | SMS: enabled</small><span class="fl-method fl-method-secondary">TAP</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Status: Not Usable | Lifetime: 60min</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Authenticator,WHFB" data-accountenabled="true" data-usertype="guest" data-name="Ingrid Novak" data-upn="ingrid.novak_extern.de#EXT#@contoso.onmicrosoft.com">
+              <td>Ingrid Novak<br><small class="text-muted">ingrid.novak_extern.de#EXT#@contoso.onmicrosoft.com</small></td>
               <td><span class="fl-pill fl-pill-warning">Guest</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (1)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <span class="fl-method fl-method-dark">Windows Hello</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: ThinkPad X1 Carbon | Mode: push</small>
-                  <span class="fl-method fl-method-dark">Windows Hello</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: ThinkPad X1 Carbon</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 10: Authenticator only -->
-            <tr data-hasmfa="true" data-methods="Authenticator" data-accountenabled="false" data-usertype="member" data-name="jan zimmermann" data-upn="jan.zimmermann@contoso.com">
+              <td><span class="fl-pill fl-pill-success">Capable (1)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="fl-method fl-method-dark">Windows Hello</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: Pixel 8 | Mode: push</small><span class="fl-method fl-method-dark">Windows Hello</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: ThinkPad X1 Carbon</small></div></td>
+            </tr>            <tr data-hasmfa="true" data-methods="Authenticator" data-accountenabled="false" data-usertype="member" data-name="Jan Zimmermann" data-upn="jan.zimmermann@contoso.com">
               <td>Jan Zimmermann<br><small class="text-muted">jan.zimmermann@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-secondary">Disabled</span></td>
               <td><span class="fl-pill fl-pill-success">Registered</span></td>
-              <td>
-                <span class="fl-pill fl-pill-success">Capable (1)</span>
-                <div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span></div>
-              </td>
-              <td>
-                <div class="methods-summary">
-                  <span class="fl-method fl-method-primary">Authenticator</span>
-                  <button class="methods-toggle">&#9660;</button>
-                </div>
-                <div class="methods-detail">
-                  <span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: iPad Air | Mode: push</small>
-                </div>
-              </td>
-            </tr>
-
-            <!-- 11: No methods -->
-            <tr data-hasmfa="false" data-methods="" data-accountenabled="true" data-usertype="member" data-name="katja wolf" data-upn="katja.wolf@contoso.com">
+              <td><span class="fl-pill fl-pill-success">Capable (1)</span><div class="sspr-chips"><span class="fl-method fl-method-primary">Authenticator</span></div></td>
+              <td><div class="methods-summary"><span class="fl-method fl-method-primary">Authenticator</span><span class="methods-toggle">&#9660;</span></div><div class="methods-detail"><span class="fl-method fl-method-primary">Authenticator</span><small class="text-muted d-block ms-1 mb-1" style="font-size:.71em">Device: iPhone 12 | Mode: push</small></div></td>
+            </tr>            <tr data-hasmfa="false" data-methods="" data-accountenabled="true" data-usertype="member" data-name="Katja Wolf" data-upn="katja.wolf@contoso.com">
               <td>Katja Wolf<br><small class="text-muted">katja.wolf@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
               <td><span class="fl-pill fl-pill-danger">Not Registered</span></td>
               <td><span class="fl-pill fl-pill-danger">Not Capable</span></td>
               <td><span class="text-muted small">—</span></td>
-            </tr>
-
-            <!-- 12: No methods -->
-            <tr data-hasmfa="false" data-methods="" data-accountenabled="true" data-usertype="member" data-name="lukas meier" data-upn="lukas.meier@contoso.com">
+            </tr>            <tr data-hasmfa="false" data-methods="" data-accountenabled="true" data-usertype="member" data-name="Lukas Meier" data-upn="lukas.meier@contoso.com">
               <td>Lukas Meier<br><small class="text-muted">lukas.meier@contoso.com</small></td>
               <td><span class="fl-pill fl-pill-primary">Member</span></td>
               <td><span class="fl-pill fl-pill-success">Enabled</span></td>
@@ -500,7 +405,6 @@
               <td><span class="fl-pill fl-pill-danger">Not Capable</span></td>
               <td><span class="text-muted small">—</span></td>
             </tr>
-
           </tbody>
         </table>
       </div>
@@ -511,7 +415,7 @@
   <script>
     let table;
     let currentFilter = 'all';
-    let advFilters    = [];
+    let advFilters    = [];   // [{pattern, action, conn}]
 
     $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
       if (settings.nTable.id !== 'mfaTable') { return true; }
@@ -521,16 +425,18 @@
       let methods        = (row.attr('data-methods') || '').split(',').filter(Boolean);
       let accountEnabled = row.attr('data-accountenabled') === 'true';
       let userType       = (row.attr('data-usertype') || '').toLowerCase();
+
       let switchResult;
       switch (currentFilter) {
-        case 'all':      switchResult = true;                            break;
-        case 'nomfa':    switchResult = !hasMfa;                         break;
-        case 'hasmfa':   switchResult = hasMfa;                          break;
-        case 'disabled': switchResult = !accountEnabled;                 break;
-        case 'guest':    switchResult = userType === 'guest';            break;
+        case 'all':      switchResult = true;                           break;
+        case 'nomfa':    switchResult = !hasMfa;                        break;
+        case 'hasmfa':   switchResult = hasMfa;                         break;
+        case 'disabled': switchResult = !accountEnabled;                break;
+        case 'guest':    switchResult = userType === 'guest';           break;
         default:         switchResult = methods.includes(currentFilter); break;
       }
       if (!switchResult) { return false; }
+
       if (advFilters.length > 0) {
         let nm  = (row.attr('data-name') || '').toLowerCase();
         let upn = (row.attr('data-upn')  || '').toLowerCase();
@@ -538,9 +444,13 @@
         for (let f of advFilters) {
           let match  = nm.includes(f.pattern) || upn.includes(f.pattern);
           let passes = f.action === 'include' ? match : !match;
-          if (result === null) { result = passes; }
-          else if (f.conn === 'or') { result = result || passes; }
-          else { result = result && passes; }
+          if (result === null) {
+            result = passes;
+          } else if (f.conn === 'or') {
+            result = result || passes;
+          } else {
+            result = result && passes;
+          }
         }
         if (!result) { return false; }
       }
@@ -576,10 +486,12 @@
         order: [[3, 'asc'], [0, 'asc']],
         dom: '<"dt-filter-bar"f>rtip',
         buttons: [
-          { extend: 'csvHtml5',   text: 'Export CSV'   },
+          { extend: 'csvHtml5',   text: 'Export CSV' },
           { extend: 'excelHtml5', text: 'Export Excel' }
         ],
-        columnDefs: [{ orderable: false, targets: [1, 2, 4] }]
+        columnDefs: [
+          { orderable: false, targets: [1, 2, 4] }
+        ]
       });
 
       $('.filter-btn').on('click', function () {
@@ -587,6 +499,11 @@
         $(this).addClass('active');
         currentFilter = $(this).data('filter');
         table.draw();
+      });
+
+      $('.adv-logic').on('click', function () {
+        $('.adv-logic').removeClass('active');
+        $(this).addClass('active');
       });
 
       $('#advRows').on('click', '.adv-conn-btn', function () {
@@ -622,7 +539,7 @@
           let action   = $(this).find('.adv-row-action.active').data('action') || 'include';
           let connNode = $(this).prev('.adv-connector');
           let conn     = connNode.length ? (connNode.find('.adv-conn-btn.active').data('conn') || 'and') : 'and';
-          if (pattern) { advFilters.push({ pattern, action, conn }); }
+          if (pattern) { advFilters.push({ pattern: pattern, action: action, conn: conn }); }
         });
         table.draw();
       });
@@ -635,7 +552,7 @@
       });
 
       $('#advToggle').on('click', function () {
-        let panel   = $('#advPanel');
+        let panel = $('#advPanel');
         let visible = panel.is(':visible');
         panel.toggle();
         $(this).toggleClass('active', !visible);
@@ -647,10 +564,11 @@
         }
       });
 
-      $('#btnCsv').on('click',   function () { table.button('.buttons-csv').trigger();   });
+      $('#btnCsv').on('click',   function () { table.button('.buttons-csv').trigger(); });
       $('#btnExcel').on('click', function () { table.button('.buttons-excel').trigger(); });
 
-      $('#mfaTable tbody').on('click', 'tr', function () {
+      // Collapse/expand method details — click anywhere on the row
+      $('#mfaTable tbody').on('click', 'tr', function (e) {
         var $row = $(this);
         if ($row.find('.methods-summary').length) {
           $row.find('.methods-summary, .methods-detail, .sspr-chips').toggle();
@@ -660,3 +578,4 @@
   </script>
 </body>
 </html>
+
